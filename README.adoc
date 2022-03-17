@@ -1,0 +1,5 @@
+Assignment Title
+Brief overview (approx. one paragraph)
+Author(s)
+Assignment Details
+Known Issues/Limitations (optional) — acknowledge any known shortcomings of the assignment

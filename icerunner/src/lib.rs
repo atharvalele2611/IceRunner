@@ -72,10 +72,7 @@ impl Pos {
         let (x, y) = self.xy();
         self.at_edge() || ((x == 0 || x == 4) && y == 2) || (x == 2 && (y == 0 || y == 4))
     }
-    /// Return `Some(pos)` if `pos` is the position on the gameboard that is one
-    /// step from `self` in the direction `dir`.  Returns `None` if there is no
-    /// position on the gameboard that is one step from `self` in the direction
-    /// `dir` (i.e., would move off the edge of the gameboard).
+
     fn step(&self, dir: Direction) -> Option<Self> {
         let (x, y) = self.xy();
         let (x, y) = match dir {
@@ -106,7 +103,7 @@ impl Pos {
         };
         Some(Pos::new(x, y))
     }
-    /// An iterator over all positions of the gameboard.
+
     pub fn values() -> impl Iterator<Item = Self> {
         (0..5).flat_map(|y| (0..5).map(move |x| Pos::new(x, y)))
     }
@@ -118,8 +115,6 @@ impl Display for Pos {
     }
 }
 
-/// The `Direction` type represents the cardinal directions, in which objects
-/// may be moved on the gameboard.
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum Direction {
     North,
@@ -180,7 +175,7 @@ mod icerunner {
             let (x, y) = pos.xy();
             &self.maze[x][y]
         }
-        /// Returns a mutable reference to the gameboard at position `pos`.
+
         pub(super) fn get_mut(&mut self, pos: Pos) -> &mut Option<Object> {
             let (x, y) = pos.xy();
             &mut self.maze[x][y]
@@ -314,7 +309,6 @@ impl IceRunner {
             Some(o) => o,
             None => return None,
         };
-        // check if object is a rabbit object only then proceed
         if !obj_p.is_start() {
             return None;
         }
@@ -337,8 +331,6 @@ fn get_next_loc(board: &IceRunner, mut p: Pos, dir: Direction) -> Option<Pos> {
         match p.step(dir) {
             Some(new_pos) => match board.get(new_pos) {
                 Some(ob) => {
-                    println!("pos {:?} dir {}", new_pos, dir);
-
                     if !ob.is_obstacle() {
                         p = new_pos;
                     } else {

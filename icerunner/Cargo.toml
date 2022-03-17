@@ -1,8 +1,8 @@
 [package]
 name = "icerunner"
 version = "0.1.0"
-authors = ["Matthew Fluet <matthew.fluet@gmail.com>"]
-edition = "2021"
+authors = ["Atharva Lele <al8523@rit.edu>", Vaidehi Kalra <vk5548@rit.edu]
+edition = "2022"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

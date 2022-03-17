@@ -46,7 +46,6 @@ where
         for (m, pp) in p.next() {
             if cm == &m {
                 p = pp;
-                println!("p {:?}", p);
                 continue 'moves;
             }
         }
@@ -144,5 +143,3 @@ where
     }
     Some(vec)
 }
-#[allow(clippy::type_complexity)]
-pub mod test;
